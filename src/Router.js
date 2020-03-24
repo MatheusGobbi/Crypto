@@ -6,19 +6,19 @@ import MainPage from './pages/MainPage';
 
 
 const AppNavigator = createStackNavigator ({
+  'Main': {
+    screen: MainPage,
+    navigationOptions: {
+      title: 'Suas Moedas'
+    }
+},
   'Login': {
       screen: LoginScreen,
       navigationOptions: {
         title: 'Bem vindo!'
       }
   },
-  'Main': {
-      screen: MainPage,
-      navigationOptions: {
-        title: 'Suas Moedas'
-      }
-
-  }
+ 
 }, {
   defaultNavigationOptions: {
     title: "Series",
