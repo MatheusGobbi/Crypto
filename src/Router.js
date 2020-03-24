@@ -3,6 +3,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import LoginScreen from './pages/LoginScreen';
 import MainPage from './pages/MainPage';
+import MoedaDetailPage from './pages/MoedaDetailPage';
 
 
 const AppNavigator = createStackNavigator ({
@@ -18,6 +19,15 @@ const AppNavigator = createStackNavigator ({
         title: 'Bem vindo!'
       }
   },
+  'MoedaDetailPage': {
+      screen: MoedaDetailPage,
+      navigationOptions: ({ navigation }) => {
+        //navigation.state.
+        return{
+          title: 'Detalhes'
+        }
+      }
+  }
  
 }, {
   defaultNavigationOptions: {

@@ -1,8 +1,17 @@
 import React from 'react';
-import { View, Text, StyleSheet, Dimensions, Image } from 'react-native';
+import { 
+    View, 
+    Text, 
+    StyleSheet, 
+    Dimensions, 
+    Image, 
+    TouchableOpacity 
+} from 'react-native';
 
-const MoedaCard = ({ moeda, isFirstColumn }) => (
-    <View style={[
+const MoedaCard = ({ moeda, isFirstColumn, onNavigate }) => (
+    <TouchableOpacity 
+        onPress={onNavigate}
+        style={[
              styles.container, 
              isFirstColumn ? styles.firstColumn : styles.lastColumn]}>
         <View style={styles.card}>
@@ -18,7 +27,7 @@ const MoedaCard = ({ moeda, isFirstColumn }) => (
                 <Text style={styles.preco}>Preço hoje R${moeda.preco}</Text>
             </View>
         </View>
-    </View>
+    </TouchableOpacity>
 );  
 
 const styles = StyleSheet.create({

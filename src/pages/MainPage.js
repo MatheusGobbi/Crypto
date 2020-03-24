@@ -12,6 +12,7 @@ const MainPage = props => (
                 <MoedaCard 
                     moeda={item}
                     isFirstColumn={isEnven(index)}
+                    onNavigate={ () => props.navigation.navigate('MoedaDetailPage', {moeda: item})}
                 />
             )}
             keyExtractor={item => item.id}
