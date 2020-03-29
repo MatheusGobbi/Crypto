@@ -8,10 +8,6 @@ import { getTopList as ActionGetTopList } from '../actions/cryptoAction';
 
 
 const FavoritosPage = props => {
-
-    if (props.favoritos.length === 0) {
-        props.getTopList();
-    }
     return (
         <View style={styles.container}>
             <FlatList
@@ -49,13 +45,8 @@ const mapStateToProps = (state) => ({
     favoritos: state.crypto.favoritos
 })
 
-const mapDispatchToProps = (dispatch) => (
-    bindActionCreators({
-        getTopList: ActionGetTopList,
-    }, dispatch)
-)
 
-export default connect(mapStateToProps, mapDispatchToProps)(FavoritosPage);
+export default connect(mapStateToProps, null)(FavoritosPage);
 
 
 //redux-thunk se for função ele chama a action (dispatch, getState, extraArgument )

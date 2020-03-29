@@ -29,24 +29,6 @@ class LoginPage extends React.Component {
         }
     }
 
-    //Conectar firebase
-    componentDidMount() {  
-        var firebaseConfig = {
-            apiKey: "AIzaSyAe_5fkfL9a25X8-nqd_L6TJLDM_ZcjrY0",
-            authDomain: "crypto-b8117.firebaseapp.com",
-            databaseURL: "https://crypto-b8117.firebaseio.com",
-            projectId: "crypto-b8117",
-            storageBucket: "crypto-b8117.appspot.com",
-            messagingSenderId: "659426029326",
-            appId: "1:659426029326:web:6554f13b161f437a6df15f",
-            measurementId: "G-K0F3NMTYL1"
-          };
-          // Initialize Firebase
-          if (!firebase.apps.length) {
-          firebase.initializeApp(firebaseConfig);
-          }
-
-    }
 
     //setState dos campos input 
     onChangeHandler(field, value) {
@@ -59,14 +41,14 @@ class LoginPage extends React.Component {
     // que devolve o dispatch e é tratado pelo redux-thunk
     // depois passa pelo UserReducer
     tryLogin() {
-        this.setState( { isLoading: true, message: '' } );
+        this.setState({ isLoading: true, message: '' });
         const { mail: email, password } = this.state;
 
-        this.props.tryLogin( { email, password } )
-            .then( user => {
+        this.props.tryLogin({ email, password })
+            .then(user => {
                 if (user)
                     return this.props.navigation.replace('Crypto');
-                
+
                 this.setState({
                     isLoading: false,
                     message: ''
@@ -74,9 +56,10 @@ class LoginPage extends React.Component {
 
             })
             .catch(error => {
-                this.setState( { 
-                    isLoading: false, 
-                    message: this.getMessageByErrorCode(error.code) } );
+                this.setState({
+                    isLoading: false,
+                    message: this.getMessageByErrorCode(error.code)
+                });
             })
     }
 
@@ -94,7 +77,7 @@ class LoginPage extends React.Component {
 
     //render botão e indicador de carregamento
     renderButton() {
-        if( this.state.isLoading)
+        if (this.state.isLoading)
             return <ActivityIndicator />
         return (
             <Button
@@ -106,7 +89,7 @@ class LoginPage extends React.Component {
 
     renderMessage() {
         const { message } = this.state;
-        if(!message)
+        if (!message)
             return null;
 
         return (
@@ -140,8 +123,8 @@ class LoginPage extends React.Component {
                     />
                 </FormRow>
 
-                { this.renderButton() }
-                { this.renderMessage() }
+                {this.renderButton()}
+                {this.renderMessage()}
             </View>
         )
     }
@@ -157,7 +140,7 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingRight: 10,
     },
-    
+
 })
 
 
