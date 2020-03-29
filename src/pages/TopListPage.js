@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import MoedaCard from '../components/moedaCard';
 
-import { getTopList as ActionGetTopList } from '../actions/cryptoAction';
-
+import { getTopList as ActionGetTopList, addFavoritos as ActionAddFavoritos  } from '../actions/cryptoAction';
 
 const FavoritosPage = props => {
 
@@ -20,7 +19,7 @@ const FavoritosPage = props => {
                     <MoedaCard
                         moeda={item}
                         isFirstColumn={isEnven(index)}
-                        onNavigate={() => props.navigation.navigate('MoedaDetailPage', { moeda: item })}
+                        onPress={() => props.addFavoritos(item.id)}
                     />
                 )}
                 keyExtractor={item => item.id}
@@ -52,8 +51,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => (
     bindActionCreators({
         getTopList: ActionGetTopList,
+        addFavoritos: ActionAddFavoritos,
     }, dispatch)
-)
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(FavoritosPage);
 

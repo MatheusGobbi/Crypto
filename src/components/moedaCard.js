@@ -8,9 +8,9 @@ import {
     TouchableOpacity 
 } from 'react-native';
 
-const MoedaCard = ({ moeda, isFirstColumn, onNavigate }) => (
+const MoedaCard = ({ moeda, isFirstColumn, onPress }) => (
     <TouchableOpacity 
-        onPress={onNavigate}
+        onPress={onPress}
         style={[
              styles.container, 
              isFirstColumn ? styles.firstColumn : styles.lastColumn]}>

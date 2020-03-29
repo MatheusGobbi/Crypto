@@ -24,7 +24,7 @@ import Router from './Router';
 import store from './store';
 
 import { Provider } from 'react-redux';
-YellowBox.ignoreWarnings(['Warning', 'Require']);
+YellowBox.ignoreWarnings(['Warning', 'Require', 'Setting a timer', 'Possible Unhandled']);
 
 const CryptoApp = prop => (
     <SafeAreaView style={{ flex: 1 }}>

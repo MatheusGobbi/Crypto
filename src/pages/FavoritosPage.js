@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import MoedaCard from '../components/moedaCard';
 
-import { getTopList as ActionGetTopList } from '../actions/cryptoAction';
+import { removeFavoritos as ActionRemoveFavoritos  } from '../actions/cryptoAction';
 
 
 const FavoritosPage = props => {
@@ -16,7 +16,7 @@ const FavoritosPage = props => {
                     <MoedaCard
                         moeda={item}
                         isFirstColumn={isEnven(index)}
-                        onNavigate={() => props.navigation.navigate('MoedaDetailPage', { moeda: item })}
+                        onPress={() => props.removeFavoritos(item.id)}
                     />
                 )}
                 keyExtractor={item => item.id}
@@ -45,8 +45,13 @@ const mapStateToProps = (state) => ({
     favoritos: state.crypto.favoritos
 })
 
+const mapDispatchToProps = (dispatch) => (
+    bindActionCreators({
+        removeFavoritos: ActionRemoveFavoritos,
+    }, dispatch)
+);
 
-export default connect(mapStateToProps, null)(FavoritosPage);
+export default connect(mapStateToProps, mapDispatchToProps)(FavoritosPage);
 
 
 //redux-thunk se for função ele chama a action (dispatch, getState, extraArgument )
