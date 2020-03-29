@@ -1,4 +1,4 @@
-import { SET_TOP_LIST } from '../actions'
+import { SET_TOP_LIST, SET_FAVORITOS } from '../actions'
 
 const INITIAL_STATE = {
     topList: [],
@@ -11,6 +11,11 @@ export default function cryptoReducer(state = INITIAL_STATE, action) {
             return {
                 ...state,
                 topList: action.payload
+            }
+        case SET_FAVORITOS:
+            return {
+                ...state,
+                favoritos: action.payload
             }
         default:
             return state;
