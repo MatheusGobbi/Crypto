@@ -7,15 +7,14 @@ import MoedaCard from '../components/moedaCard';
 import { getTopList as ActionGetTopList } from '../actions/cryptoAction';
 
 
-const MainPage = props => {
+const FavoritosPage = props => {
 
     if (props.topList.length === 0) {
         props.getTopList();
     }
     return (
-        <View>
+        <View style={styles.container}>
             <FlatList
-                //data={moedas}
                 data={props.topList}
                 renderItem={({ item, index }) => (
                     <MoedaCard
@@ -41,6 +40,8 @@ const styles = StyleSheet.create({
     },
     marginBottom: {
         marginBottom: 5,
+    }, container: {
+        flex: 1,
     }
 })
 
@@ -54,7 +55,7 @@ const mapDispatchToProps = (dispatch) => (
     }, dispatch)
 )
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
+export default connect(mapStateToProps, mapDispatchToProps)(FavoritosPage);
 
 
 //redux-thunk se for função ele chama a action (dispatch, getState, extraArgument )

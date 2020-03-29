@@ -1,7 +1,8 @@
 import { SET_TOP_LIST } from '../actions'
 
 const INITIAL_STATE = {
-    topList: []
+    topList: [],
+    favoritos: []
 }
 
 export default function cryptoReducer(state = INITIAL_STATE, action) {
