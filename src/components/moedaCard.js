@@ -23,8 +23,8 @@ const MoedaCard = ({ moeda, isFirstColumn, onNavigate }) => (
                 resizeMode="cover"
             />
             <View style={styles.cardTitleWrapper}>
-                <Text style={styles.cardTitle}>{moeda.title}</Text>
-                <Text style={styles.preco}>Preço hoje R${moeda.preco}</Text>
+                <Text style={styles.cardTitle}>{moeda.nomeCompleto.length > 20 ? moeda.nome : moeda.nomeCompleto}</Text>
+                <Text style={styles.preco}>Preço R${moeda.preco}</Text>
             </View>
         </View>
     </TouchableOpacity>
@@ -54,8 +54,8 @@ const styles = StyleSheet.create({
 
         width: '100%',
 
-        paddingTop: 10,
-        paddingBottom: 10,
+        paddingTop: 5,
+        paddingBottom: 5,
 
         paddingLeft: 3,
         paddingRight: 3,
